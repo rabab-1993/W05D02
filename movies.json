@@ -1,3 +1,14 @@
+[
 {
-    "id":0, "name": "avegers", "isFav": true, "iscompleted": true
+    "id":0, "name": "Avengers", "isFav": true, "isDeleted": false
+},
+{
+    "id":1," name": "Batman", "isFav": false, "isDeleted": false
+},
+{
+    "id":2, "name": "Iron man", "isFav": true, "isDeleted": false
+},
+{
+    "id":3, "name": "Captain America", "isFav": true, "isDeleted": false
 }
+]

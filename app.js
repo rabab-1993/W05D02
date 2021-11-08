@@ -1,20 +1,22 @@
 let express = require("express")
 let app = express();
+let fs = require("fs");
 
+// fs.readFile('/movies.json', (err, data))
 
 
 let movies = [
     {
-        id:0, name: "avegers", isFav: true, isDeleted: false
+        id:0, name: "Avengers", isFav: true, isDeleted: false
     },
     {
-        id:1, name: "batman", isFav: false, isDeleted: false
+        id:1, name: "Batman", isFav: false, isDeleted: false
     },
     {
-        id:2, name: "iron man", isFav: true, isDeleted: false
+        id:2, name: "Iron man", isFav: true, isDeleted: false
     },
     {
-        id:3, name: "CaptinAmerica", isFav: true, isDeleted: false
+        id:3, name: "Captain America", isFav: true, isDeleted: false
     },
 
 ]
@@ -37,9 +39,10 @@ app.get("/allmovies/:id", (req, res) => {
     res.json(movie)
 })
 
+
+// Get favorite
 app.get("/favs", (req, res) => {
     let fav = movies.map((arr) => {
-        // return i.isFav === true;
         if (arr.isFav === true) {
             return arr;
         }
@@ -48,9 +51,26 @@ app.get("/favs", (req, res) => {
 })
 
 
-// app.post("/newmovies", (req, res) => {
-//     res.json(movies)
+app.post("/newmovies", (req, res) => {
+    let {id,name,isFav, isDeleted}= req.body;
+    movies.push({id,name,isFav, isDeleted})
+    res.status(200)
+    res.json({id,name,isFav, isDeleted})
+})
+
+
+// app.put("/update/:id", (req, res) => {
+//     let getId= req.params.id
+//     movies.filter((ele) => {
+//       ele.isCompleted = isCompleted;
+//     })
+//     res.status(200)
+//     res.json()
 // })
+
+
+// delete movie
+
 
 
 
